@@ -1,0 +1,274 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: 1.25rem 0;
+  transition: all var(--transition-normal);
+  background-color: transparent;
+}
+
+.header.scrolled {
+  background-color: rgba(17, 16, 16, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 73px;
+  height: 32px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+}
+
+.navList {
+  display: flex;
+  gap: 2.875rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  font-family: "Proxima Nova", var(--font-primary);
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--color-white);
+  text-decoration: none;
+  letter-spacing: -0.28px;
+  line-height: 1;
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  color: var(--color-white);
+  font-family: "Proxima Nova", var(--font-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.ctaButton:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+}
+
+.ctaButton span {
+  width: 130px;
+  text-align: center;
+}
+
+.ctaIcon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-normal);
+}
+
+.ctaButton:hover .ctaIcon {
+  background-color: var(--color-primary);
+}
+
+.ctaButton:hover .ctaIcon svg {
+  fill: var(--color-white);
+}
+
+/* .ctaIcon img {
+  width: 13px;
+  height: 15px;
+} */
+
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: var(--z-modal);
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
+  height: 18px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 1px;
+  transition: all var(--transition-normal);
+  position: absolute;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+.hamburgerOpen span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 50%;
+  margin-top: -1px;
+}
+
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 50%;
+  margin-bottom: -1px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-dropdown);
+}
+
+/* Mobile styles */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-primary);
+    padding: 6rem 2rem 2rem;
+    transition: right var(--transition-normal);
+    z-index: var(--z-fixed);
+  }
+
+  .navOpen {
+    right: 0;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .navLink {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .mobileMenuToggle {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .nav {
+    width: 280px;
+    padding: 5rem 1.5rem 2rem;
+  }
+
+  .logo {
+    width: 60px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .nav {
+    width: 100%;
+    right: -100%;
+  }
+
+  .navOpen {
+    right: 0;
+  }
+}
