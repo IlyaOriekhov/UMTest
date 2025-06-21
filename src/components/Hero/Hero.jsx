@@ -5,74 +5,123 @@ import sprite from "../../assets/sprite.svg";
 import calendar from "../../assets/calendar.png";
 import victor from "../../assets/victor.png";
 import car from "../../assets/car.png";
+import brock from "../../assets/brock-wegner.png";
+import frame from "../../assets/FrameBig.png";
 
 const Hero = () => {
-  const tagData = [
-    { id: 1, italicText: "performance", regularText: "marketing" },
-    { id: 2, italicText: "user", regularText: "experience" },
-    { id: 3, italicText: "creative", regularText: "strategy" },
-  ];
-
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.textContent}>
-            <div className={styles.description}>
-              <p className={styles.introText}>
-                We help businesses grow and scale with our expertise in
-              </p>
+          <div className={styles.leftSection}>
+            <div className={styles.frameContainer}>
+              <img src={frame} alt="Frame" className={styles.frameImage} />
 
-              <div className={styles.tagsContainer}>
-                <div className={styles.tagGroup}>
-                  <span className={styles.tag}>
-                    <span className={styles.tagItalic}>
-                      {tagData[0].italicText}
-                    </span>
-                    <span className={styles.tagRegular}>
-                      {tagData[0].regularText}
-                    </span>
-                  </span>
-                  <span className={styles.comma}>,</span>
+              <div className={styles.frameContent}>
+                <div className={styles.heroTitle}>
+                  <h1 className={styles.mainTitle}>
+                    BUILDING
+                    <br />
+                    <span className={styles.titleAccent}>DATA-DRIVEN</span>
+                    <br />
+                    E-COMMERCE
+                    <br />
+                    ON SHOPIFY
+                  </h1>
                 </div>
 
-                <div className={styles.tagGroup}>
-                  <span className={styles.tag}>
-                    <span className={styles.tagItalic}>
-                      {tagData[1].italicText}
-                    </span>
-                    <span className={styles.tagRegular}>
-                      {tagData[1].regularText}
-                    </span>
-                  </span>
-                  <span className={styles.and}>and</span>
-                  <span className={styles.tag}>
-                    <span className={styles.tagItalic}>
-                      {tagData[2].italicText}
-                    </span>
-                    <span className={styles.tagRegular}>
-                      {tagData[2].regularText}
-                    </span>
-                  </span>
+                <div className={styles.contentRow}>
+                  <div className={styles.descriptionSection}>
+                    <p className={styles.introText}>
+                      We help businesses grow and scale
+                      <br /> with our expertise in&nbsp;
+                      <span className={styles.tag}>
+                        <span className={styles.tagItalic}>performance</span>
+                        marketing
+                      </span>
+                      &nbsp;,
+                      <span className={styles.tag}>
+                        <span className={styles.tagItalic}>user</span>
+                        experience
+                      </span>
+                      <span className={styles.and}>&nbsp;and&nbsp;</span>
+                      <span className={styles.tag}>
+                        <span className={styles.tagItalic}>creative</span>
+                        strategy
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className={styles.ctaSection}>
+                    <button className={styles.ctaButton}>
+                      <span className={styles.ctaText}>FREE STRATEGY CALL</span>
+                      <div className={styles.ctaIcon}>
+                        <img src={calendar} alt="calendar" />
+                      </div>
+                    </button>
+
+                    <p className={styles.reviewText}>
+                      <span className={styles.reviewBold}>146+ REVIEWS.</span>
+                      <span className={styles.reviewMuted}>
+                        ALL CHANGES ARE YOU'LL BE IMPRESSED TOO.
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className={styles.ctaSection}>
-            <button className={styles.ctaButton}>
-              <span className={styles.ctaText}>FREE STRATEGY CALL</span>
-              <div className={styles.ctaIcon}>
-                <img src={calendar} alt="calendar" />
+          <div className={styles.rightSection}>
+            <div className={styles.heroImage}>
+              <div className={styles.imageTags}>
+                <span className={styles.imageTag}>Clothing</span>
+                <span className={styles.imageTag}>Meta Ads</span>
+                <span className={styles.imageTag}>
+                  <svg width="10" height="11">
+                    <use href={`${sprite}#icon-location`} />
+                  </svg>
+                  &nbsp;USA
+                </span>
               </div>
-            </button>
+              <img
+                src={brock}
+                alt="Person working"
+                className={styles.uncleImage}
+              />
 
-            <p className={styles.reviewText}>
-              <span className={styles.reviewBold}>146+ reviews.</span>
-              <span className={styles.reviewMuted}>
-                All chances are you'll be impressed too.
-              </span>
-            </p>
+              <div className={styles.metricsCard}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.cardIcon}>
+                    <svg width="15" height="16">
+                      <use href={`${sprite}#icon-calendar-clock`} />
+                    </svg>
+                  </div>
+
+                  <span className={styles.cardDate}>JULY 2023 — BY TODAY</span>
+                </div>
+
+                <h3 className={styles.cardTitle}>Vintage Clothing</h3>
+                <p className={styles.cardSubtitle}>
+                  Online store of vintage clothes
+                </p>
+
+                <div className={styles.metrics}>
+                  <div className={styles.metric}>
+                    <span className={styles.metricLabel}>Budget:</span>
+                    <span className={styles.metricValue}>$3,525.92</span>
+                  </div>
+                  <div className={styles.metric}>
+                    <span className={styles.metricLabel}>Profit:</span>
+                    <span className={styles.metricValue}>$44,529.57</span>
+                  </div>
+                  <div className={styles.metric}>
+                    <span className={styles.metricLabel}>ROAS:</span>
+                    <span className={styles.metricValue}>1350%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

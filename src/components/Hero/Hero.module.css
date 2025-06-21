@@ -7,19 +7,73 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left top;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 3.125rem;
+  position: relative;
 }
 
 .content {
   display: flex;
   align-items: flex-start;
-  gap: 4.75rem;
+  justify-content: flex-start;
   margin-bottom: 4rem;
+  position: relative;
+}
+
+.leftSection {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.frameContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.frameImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.frameContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 85%;
+  text-align: left;
+}
+
+.contentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.descriptionSection {
+  flex: 1;
+  max-width: 60%;
+}
+
+.rightSection {
+  flex: 1;
+}
+
+.heroTitle {
+  margin: 0;
 }
 
 .textContent {
@@ -28,78 +82,225 @@
 }
 
 .description {
-  margin-bottom: 2rem;
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.mainTitle {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 104px;
+  line-height: 0.96;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+.titleAccent {
+  background: linear-gradient(58deg, #5cd6b3 0%, #04b8c4 0.01%, #4bfa8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroImage {
+  width: 424px;
+  min-height: 688px;
+  position: relative;
+  border-radius: 20px;
+
+  margin-left: 17px;
+}
+
+.imageTags {
+  position: absolute;
+
+  top: 47px;
+  left: 30px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.imageTag {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    145deg,
+    rgba(17, 17, 17, 0.33) 0%,
+    rgba(17, 17, 17, 0.06) 100%
+  );
+}
+
+.uncleImage {
+  object-fit: cover;
+  border-radius: 15px 15px 0;
+  min-height: 380px;
+}
+
+.frameCont {
+  position: relative;
+  display: inline-block;
+}
+
+.metricsCard {
+  position: absolute;
+  top: 338px;
+  left: 0;
+  border-radius: 15px;
+
+  box-sizing: border-box;
+
+  padding: 40px;
+  width: 424px;
+  height: auto;
+  color: white;
+  background-image: url(../../assets/SmallFrame.png);
+
+  background-size: cover;
+  background-position: center;
+
+  z-index: 2;
+}
+
+.metricsCard::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  width: 210px;
+  height: 286px;
+  background-image: url("../../assets/dot.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+
+  opacity: 0.5;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+
+  z-index: 321;
+}
+
+.cardIcon {
+  border-radius: 100%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(58deg, #0034ed 0%, #04b8c4 49%, #4bfa8a 100%);
+
+  z-index: 321;
+}
+
+.cardDate {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
+
+  z-index: 321;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+
+  z-index: 321;
+}
+
+.cardSubtitle {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 0 0 20px 0;
+}
+
+.metrics {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metricLabel {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.metricValue {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .introText {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 18px;
   color: var(--color-white);
-  letter-spacing: -0.36px;
+  letter-spacing: -0.02em;
   line-height: 1.6;
-  margin-bottom: 0.5rem;
-  max-width: 313px;
-}
 
-.tagsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.tagGroup {
-  display: flex;
   align-items: center;
-  gap: 0.375rem;
   flex-wrap: wrap;
+  gap: 8px;
+  max-width: 405px;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.375rem 1rem;
+  gap: 8px;
+  padding: 3px 16px;
   border-radius: var(--radius-full);
-  background: linear-gradient(
-    145deg,
-    rgba(10, 17, 33, 0.06) 0%,
-    rgba(22, 29, 50, 0) 100%
-  );
-  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  margin: 4px 4px;
 }
 
 .tagItalic {
   font-family: var(--font-accent);
   font-style: italic;
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 18px;
   color: var(--color-white);
   line-height: 1;
-}
-
-.tagRegular {
-  font-family: var(--font-primary);
-  font-weight: 400;
-  font-size: 1.125rem;
-  color: var(--color-white);
-  line-height: 1;
-}
-
-.comma,
-.and {
-  font-family: var(--font-primary);
-  font-weight: 400;
-  font-size: 1.125rem;
-  color: var(--color-white);
-  letter-spacing: -0.36px;
 }
 
 .ctaSection {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 24px;
+  flex-shrink: 0;
 }
 
 .ctaButton {
@@ -108,7 +309,12 @@
   gap: 0.625rem;
   padding: 0.875rem;
   border-radius: var(--radius-full);
-  background: var(--gradient-primary);
+  background: linear-gradient(
+    49deg,
+    #15bcdf 0.01%,
+    #0ddc7a 61.5%,
+    #15bcdf 100%
+  );
   background-size: 200% 200%;
   background-position: 0% 0%;
   border: none;
@@ -175,7 +381,6 @@
   align-items: flex-start;
   gap: 4rem;
   justify-content: space-between;
-
   margin: 230px 0;
 }
 
@@ -184,10 +389,9 @@
 }
 
 .missionRight {
-  flex: 0 0 auto; /* ЗМІНИВ з flex: 1 */
-  max-width: 695px; /* ДОДАВ - обмежує ширину */
+  flex: 0 0 auto;
+  max-width: 695px;
   margin-left: auto;
-  /* align-items: center; */
 }
 
 .missionBadge {
@@ -218,10 +422,6 @@
 }
 
 .founderInfo {
-  /* display: flex;
-  align-items: center;
-  gap: 1.25rem; */
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -271,8 +471,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  /* margin-top: 1.5rem; */
-
   margin-top: 0;
 }
 
@@ -318,6 +516,7 @@
   font-size: 36px;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  width: 695px;
 }
 
 .philosophyWhite {
@@ -364,7 +563,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 8px;
   width: 223px;
   height: 223px;
   background: rgba(10, 17, 33, 0.06) 0%;
@@ -426,7 +625,6 @@
   height: 295px;
   padding-top: 3.875rem;
   text-align: center;
-
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 100%;
 }
@@ -458,6 +656,36 @@
     flex-direction: column;
     gap: 3rem;
     text-align: center;
+  }
+
+  .frameContent {
+    width: 90%;
+    gap: 30px;
+  }
+
+  .frameImage {
+    max-width: 100%;
+  }
+
+  .contentRow {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .descriptionSection {
+    max-width: 100%;
+  }
+
+  .ctaSection {
+    align-items: center;
+  }
+
+  .reviewText {
+    text-align: center;
+  }
+
+  .mainTitle {
+    font-size: 80px;
   }
 
   .textContent {
@@ -493,6 +721,19 @@
 
   .content {
     gap: 2rem;
+  }
+
+  .frameContent {
+    gap: 25px;
+    width: 95%;
+  }
+
+  .contentRow {
+    gap: 25px;
+  }
+
+  .mainTitle {
+    font-size: 60px;
   }
 
   .founderInfo {
@@ -551,6 +792,19 @@
 @media (max-width: 480px) {
   .container {
     padding: 0 1rem;
+  }
+
+  .frameContent {
+    gap: 20px;
+    width: 95%;
+  }
+
+  .contentRow {
+    gap: 20px;
+  }
+
+  .mainTitle {
+    font-size: 48px;
   }
 
   .tagGroup {
